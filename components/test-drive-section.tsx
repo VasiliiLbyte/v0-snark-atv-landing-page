@@ -98,15 +98,16 @@ export function TestDriveSection() {
   }
 
   return (
-    <section id="test-drive" className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto">
+    <section id="test-drive" className="py-28 md:py-40 bg-background">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-xl mx-auto">
           {/* Section header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4 text-balance">
+          <div className="text-center mb-14">
+            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">Заявка</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
               Записаться на тест-драйв
             </h2>
-            <p className="text-lg text-muted-foreground text-pretty">
+            <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
               Испытайте СНАРК в реальных условиях. Менеджер свяжется с вами в течение 30 минут.
             </p>
           </div>
@@ -127,14 +128,14 @@ export function TestDriveSection() {
 
             {/* Name */}
             <div className="space-y-2">
-              <Label htmlFor="name">Имя *</Label>
+              <Label htmlFor="name" className="text-base font-medium">Имя *</Label>
               <Input
                 id="name"
                 type="text"
                 placeholder="Как вас зовут?"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className={errors.name ? 'border-destructive' : ''}
+                className={`h-14 text-base rounded-xl px-5 ${errors.name ? 'border-destructive' : ''}`}
               />
               {errors.name && (
                 <p className="text-sm text-destructive">{errors.name}</p>
@@ -143,14 +144,14 @@ export function TestDriveSection() {
 
             {/* Phone */}
             <div className="space-y-2">
-              <Label htmlFor="phone">Телефон *</Label>
+              <Label htmlFor="phone" className="text-base font-medium">Телефон *</Label>
               <Input
                 id="phone"
                 type="tel"
                 placeholder="+7 (___) ___-__-__"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className={errors.phone ? 'border-destructive' : ''}
+                className={`h-14 text-base rounded-xl px-5 ${errors.phone ? 'border-destructive' : ''}`}
               />
               {errors.phone && (
                 <p className="text-sm text-destructive">{errors.phone}</p>
@@ -159,12 +160,12 @@ export function TestDriveSection() {
 
             {/* City */}
             <div className="space-y-2">
-              <Label>Город *</Label>
+              <Label className="text-base font-medium">Город *</Label>
               <Select
                 value={formData.city}
                 onValueChange={(value) => setFormData({ ...formData, city: value })}
               >
-                <SelectTrigger className={errors.city ? 'border-destructive' : ''}>
+                <SelectTrigger className={`h-14 text-base rounded-xl px-5 ${errors.city ? 'border-destructive' : ''}`}>
                   <SelectValue placeholder="Выберите город" />
                 </SelectTrigger>
                 <SelectContent>
@@ -182,29 +183,31 @@ export function TestDriveSection() {
 
             {/* Comment */}
             <div className="space-y-2">
-              <Label htmlFor="comment">Комментарий</Label>
+              <Label htmlFor="comment" className="text-base font-medium">Комментарий</Label>
               <Textarea
                 id="comment"
                 placeholder="Вопросы или пожелания (необязательно)"
                 value={formData.comment}
                 onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
                 rows={4}
+                className="text-base rounded-xl px-5 py-4"
               />
             </div>
 
             {/* Consent */}
-            <div className="flex items-start space-x-3">
+            <div className="flex items-start space-x-4 pt-2">
               <Checkbox
                 id="consent"
                 checked={formData.consent}
                 onCheckedChange={(checked) =>
                   setFormData({ ...formData, consent: checked as boolean })
                 }
+                className="mt-1"
               />
               <div className="space-y-1">
-                <Label htmlFor="consent" className="text-sm font-normal cursor-pointer">
+                <Label htmlFor="consent" className="text-sm font-normal cursor-pointer leading-relaxed">
                   Я согласен на{' '}
-                  <a href="/privacy" className="text-primary hover:underline">
+                  <a href="/privacy" className="text-primary hover:underline font-medium">
                     обработку персональных данных
                   </a>
                 </Label>
@@ -218,13 +221,13 @@ export function TestDriveSection() {
             <Button
               type="submit"
               size="lg"
-              className="w-full"
+              className="w-full h-14 text-base rounded-xl shadow-lg shadow-primary/20 mt-4"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
                 <>
                   <span className="animate-spin mr-2">
-                    <svg className="w-4 h-4" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24">
                       <circle
                         className="opacity-25"
                         cx="12"
@@ -245,7 +248,7 @@ export function TestDriveSection() {
                 </>
               ) : (
                 <>
-                  <Send className="w-4 h-4 mr-2" />
+                  <Send className="w-5 h-5 mr-2" />
                   Записаться на тест-драйв
                 </>
               )}
@@ -256,17 +259,17 @@ export function TestDriveSection() {
 
       {/* Success Modal */}
       <Dialog open={isSuccess} onOpenChange={setIsSuccess}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md rounded-2xl">
           <DialogHeader className="text-center">
-            <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <CheckCircle className="w-8 h-8 text-primary" />
+            <div className="mx-auto w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+              <CheckCircle className="w-10 h-10 text-primary" />
             </div>
             <DialogTitle className="text-2xl">Заявка отправлена!</DialogTitle>
-            <DialogDescription className="text-base">
+            <DialogDescription className="text-base leading-relaxed">
               Спасибо за интерес к технике СНАРК. Наш менеджер свяжется с вами в течение 30 минут для уточнения деталей тест-драйва.
             </DialogDescription>
           </DialogHeader>
-          <Button onClick={() => setIsSuccess(false)} className="mt-4">
+          <Button onClick={() => setIsSuccess(false)} className="mt-6 h-12 rounded-xl">
             Понятно
           </Button>
         </DialogContent>

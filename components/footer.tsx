@@ -16,26 +16,29 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-foreground text-background">
+      <div className="container mx-auto px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold tracking-tight text-foreground">
+            <Link href="/" className="inline-flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">S</span>
+              </div>
+              <span className="text-2xl font-bold tracking-tight">
                 СНАРК
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+            <p className="text-background/60 leading-relaxed mb-6">
               Российские вездеходы с двигателями Toyota. 
               Собственное производство в Санкт-Петербурге с 1991 года.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <a
                 href="https://vk.com/snark"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center text-background/60 hover:text-background hover:bg-primary transition-all"
                 aria-label="ВКонтакте"
               >
                 <span className="text-xs font-bold">VK</span>
@@ -44,7 +47,7 @@ export function Footer() {
                 href="https://t.me/snark"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center text-background/60 hover:text-background hover:bg-primary transition-all"
                 aria-label="Telegram"
               >
                 <span className="text-xs font-bold">TG</span>
@@ -53,7 +56,7 @@ export function Footer() {
                 href="https://youtube.com/@snark"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center text-background/60 hover:text-background hover:bg-primary transition-all"
                 aria-label="YouTube"
               >
                 <span className="text-xs font-bold">YT</span>
@@ -63,13 +66,13 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Навигация</h3>
-            <ul className="space-y-3">
+            <h3 className="font-semibold text-lg mb-6">Навигация</h3>
+            <ul className="space-y-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-background/60 hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -80,12 +83,12 @@ export function Footer() {
 
           {/* Contacts */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Контакты</h3>
-            <ul className="space-y-3">
+            <h3 className="font-semibold text-lg mb-6">Контакты</h3>
+            <ul className="space-y-4">
               <li>
                 <a
                   href="tel:88003335059"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-3 text-background/60 hover:text-primary transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   8 800 333 50 59
@@ -94,15 +97,15 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:sales@snark.ru"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-3 text-background/60 hover:text-primary transition-colors"
                 >
                   <Mail className="w-4 h-4" />
                   sales@snark.ru
                 </a>
               </li>
               <li>
-                <span className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span className="flex items-start gap-3 text-background/60">
+                  <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                   Санкт-Петербург, Екатерининский пр., д. 1
                 </span>
               </li>
@@ -111,13 +114,13 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4">Информация</h3>
-            <ul className="space-y-3">
+            <h3 className="font-semibold text-lg mb-6">Информация</h3>
+            <ul className="space-y-4">
               {legalLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-background/60 hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -128,12 +131,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-border mt-10 pt-6">
+        <div className="border-t border-background/10 mt-14 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-background/50">
               © {new Date().getFullYear()} ООО «СНАРК ГРУП». Все права защищены.
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-background/50">
               Цены указаны с НДС 22%. Не является публичной офертой.
             </p>
           </div>

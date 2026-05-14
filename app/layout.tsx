@@ -42,12 +42,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru" className={manrope.variable} suppressHydrationWarning>
-      <body className="font-sans antialiased bg-background">
+    <html lang="ru" className={`${manrope.variable} bg-background`} suppressHydrationWarning>
+      <body className="font-sans antialiased bg-background text-foreground">
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

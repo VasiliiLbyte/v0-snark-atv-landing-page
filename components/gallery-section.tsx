@@ -1,10 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { X, Play, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 
 type GalleryItem = {
   id: number
@@ -63,27 +61,28 @@ export function GallerySection() {
   }
 
   return (
-    <section id="gallery" className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="gallery" className="py-28 md:py-40 bg-background">
+      <div className="container mx-auto px-6 lg:px-8">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4 text-balance">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">Медиа</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
             Галерея
           </h2>
-          <p className="text-lg text-muted-foreground text-pretty">
-            Фото и видео квадроциклов СНАРК в различных условиях эксплуатации
+          <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
+            Фото и видео вездеходов СНАРК в различных условиях эксплуатации
           </p>
         </div>
 
         {/* Category filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 mb-14">
           {categories.map((category) => (
             <Button
               key={category.id}
               variant={activeCategory === category.id ? 'default' : 'outline'}
-              size="sm"
+              size="lg"
               onClick={() => setActiveCategory(category.id)}
-              className="rounded-full"
+              className="rounded-full px-6 border-2"
             >
               {category.label}
             </Button>
@@ -91,30 +90,30 @@ export function GallerySection() {
         </div>
 
         {/* Gallery grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {filteredItems.map((item, index) => (
             <button
               key={item.id}
               onClick={() => openLightbox(index)}
-              className="group relative aspect-square overflow-hidden rounded-lg bg-secondary cursor-pointer"
+              className="group relative aspect-square overflow-hidden rounded-2xl bg-secondary cursor-pointer"
             >
               {/* Placeholder div - replace with actual images later */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
-                <span className="text-muted-foreground text-sm">{item.alt}</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-muted flex items-center justify-center p-4">
+                <span className="text-muted-foreground text-sm text-center">{item.alt}</span>
               </div>
               
               {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
                 {item.type === 'video' ? (
-                  <Play className="w-12 h-12 text-white" />
+                  <Play className="w-14 h-14 text-white" />
                 ) : (
-                  <span className="text-white text-sm font-medium">Открыть</span>
+                  <span className="text-white text-sm font-semibold uppercase tracking-wider">Открыть</span>
                 )}
               </div>
               
               {/* Video badge */}
               {item.type === 'video' && (
-                <div className="absolute top-2 right-2 bg-primary text-primary-foreground px-2 py-1 rounded text-xs font-medium">
+                <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-xs font-semibold">
                   Видео
                 </div>
               )}
@@ -124,11 +123,11 @@ export function GallerySection() {
 
         {/* Lightbox */}
         {lightboxOpen && (
-          <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
+          <div className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center">
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors z-10"
+              className="absolute top-6 right-6 text-background/70 hover:text-background transition-colors z-10"
               aria-label="Закрыть"
             >
               <X className="w-8 h-8" />
@@ -137,17 +136,17 @@ export function GallerySection() {
             {/* Navigation */}
             <button
               onClick={goToPrevious}
-              className="absolute left-4 text-white/70 hover:text-white transition-colors z-10"
+              className="absolute left-6 text-background/70 hover:text-background transition-colors z-10"
               aria-label="Предыдущее"
             >
-              <ChevronLeft className="w-10 h-10" />
+              <ChevronLeft className="w-12 h-12" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-4 text-white/70 hover:text-white transition-colors z-10"
+              className="absolute right-6 text-background/70 hover:text-background transition-colors z-10"
               aria-label="Следующее"
             >
-              <ChevronRight className="w-10 h-10" />
+              <ChevronRight className="w-12 h-12" />
             </button>
 
             {/* Content */}
@@ -156,18 +155,18 @@ export function GallerySection() {
                 <div className="aspect-video">
                   <iframe
                     src={filteredItems[currentIndex].src}
-                    className="w-full h-full rounded-lg"
+                    className="w-full h-full rounded-2xl"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
                 </div>
               ) : (
-                <div className="relative aspect-video bg-secondary rounded-lg flex items-center justify-center">
+                <div className="relative aspect-video bg-muted rounded-2xl flex items-center justify-center">
                   {/* Placeholder - replace with actual image */}
                   <span className="text-muted-foreground">{filteredItems[currentIndex].alt}</span>
                 </div>
               )}
-              <p className="text-center text-white/70 mt-4">
+              <p className="text-center text-background/70 mt-6 font-medium">
                 {filteredItems[currentIndex].alt} ({currentIndex + 1} / {filteredItems.length})
               </p>
             </div>
