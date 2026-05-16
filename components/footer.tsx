@@ -31,7 +31,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Российские вездеходы на колесах нищкого давления
+              Российские вездеходы на колесах низкого давления
             </p>
           </div>
 
