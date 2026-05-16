@@ -31,8 +31,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Российские вездеходы с двигателями Toyota.
-              Собственное производство в Санкт-Петербурге с 1991 года.
+              Российские вездеходы на колесах нищкого давления
             </p>
           </div>
 
