@@ -1,0 +1,18 @@
+---
+description: Next.js, React, and TypeScript conventions for app code
+globs: **/*.{ts,tsx,js,jsx}
+alwaysApply: false
+---
+
+# Next.js and TypeScript
+
+- Keep Server Components as the default. Add `'use client'` only for state, effects, browser APIs, or client-only UI libraries.
+- Define props and shared data shapes with named `type` or `interface`; avoid `any`. Use `unknown` for external input and narrow it.
+- Prefer immutable state updates with object/array copies. Never mutate React state directly.
+- Keep components cohesive. Extract helpers or child components when a section becomes hard to scan.
+- Validate user input at boundaries with schema-based validation when data leaves the browser or enters an API route.
+- Handle async failures explicitly and show user-friendly messages in UI flows.
+- Use `next/link` for internal navigation and normal anchors for `tel:`, `mailto:`, and external URLs.
+- Keep shadcn/ui usage consistent: compose existing `components/ui` primitives before adding new UI dependencies.
+- For images, prefer `next/image` when real assets are added; keep alt text meaningful for marketing and accessibility.
+- Do not weaken `tsconfig` or `next.config` safety settings without calling out the trade-off.

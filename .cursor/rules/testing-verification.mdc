@@ -1,0 +1,14 @@
+---
+description: Testing and verification expectations for this project
+alwaysApply: true
+---
+
+# Testing and Verification
+
+- The project currently has no test script. Do not claim tests passed unless a real test command was added and run.
+- For normal code changes, prefer `pnpm lint` and `pnpm build` as the baseline verification.
+- For TypeScript-only concerns, use `pnpm exec tsc --noEmit` when build output is too broad or when investigating type safety.
+- Add focused tests when adding non-trivial logic, API routes, lead submission behavior, parsing, pricing calculations, or reusable utilities.
+- For critical user journeys, consider Playwright E2E coverage: page loads, anchor navigation, mobile menu, CTA flow, and form validation/submission.
+- UI-only changes still need manual reasoning about desktop/mobile states, keyboard access, focus states, and copy/SEO impact.
+- If verification cannot be run, state exactly what was not run and why.

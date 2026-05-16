@@ -31,7 +31,7 @@
 @theme inline {
   --font-sans: var(--font-manrope), 'Manrope', system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SFMono-Regular', Menlo, monospace;
-  --font-display: var(--font-bebas), 'Manrope', system-ui, sans-serif;
+  --font-display: var(--font-display), 'Manrope', system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -174,6 +174,18 @@
   }
 }
 
+@keyframes scroll-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  55% {
+    transform: translateY(60px);
+  }
+  100% {
+    transform: translateY(60px);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -197,4 +209,16 @@
 ::selection {
   background-color: #FF6B1A;
   color: #0A0A0B;
+}
+
+/* Accessibility: respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

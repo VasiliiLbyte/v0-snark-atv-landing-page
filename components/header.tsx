@@ -42,7 +42,12 @@ export function Header() {
             <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">S</span>
             </div>
-            <span className="font-display uppercase text-2xl tracking-tight text-foreground">
+            <span
+              className={cn(
+                'font-display uppercase text-2xl tracking-tight transition-colors',
+                isScrolled ? 'text-foreground' : 'text-white',
+              )}
+            >
               СНАРК
             </span>
           </Link>
@@ -53,7 +58,10 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all"
+                className={cn(
+                  'font-mono text-xs uppercase tracking-[0.18em] hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all',
+                  isScrolled ? 'text-muted-foreground' : 'text-white/80',
+                )}
               >
                 {item.label}
               </Link>
@@ -64,7 +72,10 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-6">
             <a
               href="tel:88003335059"
-              className="flex items-center gap-2 font-mono text-sm tabular-nums text-foreground hover:text-primary transition-colors"
+              className={cn(
+                'flex items-center gap-2 font-mono text-sm tabular-nums hover:text-primary transition-colors',
+                isScrolled ? 'text-foreground' : 'text-white/85',
+              )}
             >
               <Phone className="w-4 h-4" />
               8 800 333 50 59
@@ -76,7 +87,10 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className={cn(
+              'lg:hidden p-2 hover:text-primary transition-colors',
+              isScrolled ? 'text-foreground' : 'text-white',
+            )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
           >

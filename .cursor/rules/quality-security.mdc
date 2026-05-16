@@ -1,0 +1,15 @@
+---
+description: Quality, review, and security checks for project changes
+alwaysApply: true
+---
+
+# Quality and Security
+
+- Review changes for behavioral regressions, broken anchors, inaccessible controls, missing loading/error states, and responsive layout issues.
+- Security-sensitive work includes form submission, API routes, external integrations, dependency updates, and any user input handling.
+- Never hardcode secrets, tokens, credentials, private URLs, or production keys. Use environment variables and document required values.
+- Do not log personal data from lead forms. Keep error messages helpful without leaking internals.
+- For forms, validate required fields, consent, spam protection, and failure states before wiring production submission.
+- For external links and embeds, use trusted sources, `rel="noopener noreferrer"` for new tabs, and avoid raw user HTML.
+- If a critical or high-confidence security issue appears, stop feature work, report it, and fix it before continuing.
+- Code review output should lead with real risks by severity, not style preferences.

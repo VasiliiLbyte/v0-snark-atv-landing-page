@@ -1,0 +1,17 @@
+---
+description: How to use local specialist agents during development
+alwaysApply: true
+---
+
+# Agent Orchestration
+
+- Use `planner` for complex features, multi-file changes, refactors, or ambiguous requirements.
+- Use `architect` for structural decisions, data flow, API design, or major integration choices.
+- Use `code-reviewer` after substantive code changes when a second-pass review is valuable.
+- Use `typescript-reviewer` for TypeScript, React, and Next.js correctness reviews.
+- Use `security-reviewer` for form handling, API routes, auth, external integrations, secrets, or dependency changes.
+- Use `build-error-resolver` only to get lint/type/build failures green with minimal changes.
+- Use `tdd-guide` when adding behavior with meaningful logic or when fixing bugs.
+- Use `e2e-runner` for important browser journeys and release checks.
+- Run independent exploration or review tasks in parallel when they do not modify the same files.
+- Do not use agents as a substitute for reading the relevant code and verifying the final result.

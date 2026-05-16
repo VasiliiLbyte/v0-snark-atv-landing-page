@@ -1,0 +1,15 @@
+---
+description: Core development workflow for this Next.js landing page
+alwaysApply: true
+---
+
+# Project Workflow
+
+- Prefer existing project patterns in `app`, `components`, `components/ui`, `hooks`, and `lib` before adding new abstractions.
+- Keep changes focused and reviewable. Avoid broad refactors unless they directly support the requested task.
+- Plan first for multi-file features, architecture changes, form integrations, SEO changes, or visual redesigns.
+- Preserve user-visible Russian copy unless the task explicitly changes content.
+- Treat the site as a production landing page: keep CTA flows, phone links, anchors, metadata, and responsive behavior working.
+- Use `pnpm` commands when possible because the repository has `pnpm-lock.yaml`.
+- Before considering work complete, run the narrowest relevant verification: lint/build/type check when available, plus manual review for UI-only changes.
+- Do not commit unless explicitly asked.
