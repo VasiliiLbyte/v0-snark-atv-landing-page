@@ -61,12 +61,12 @@ export function GallerySection() {
   }
 
   return (
-    <section id="gallery" className="py-28 md:py-40 bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="gallery" className="section snap-section bg-background relative">
+      <div className="container-page relative">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">Медиа</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
+          <span className="section-eyebrow inline-block mb-4">Медиа</span>
+          <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground mb-6 text-balance">
             Галерея
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
@@ -82,7 +82,7 @@ export function GallerySection() {
               variant={activeCategory === category.id ? 'default' : 'outline'}
               size="lg"
               onClick={() => setActiveCategory(category.id)}
-              className="rounded-full px-6 border-2"
+              className="rounded-md px-6 font-mono uppercase text-xs tracking-[0.18em]"
             >
               {category.label}
             </Button>
@@ -95,25 +95,25 @@ export function GallerySection() {
             <button
               key={item.id}
               onClick={() => openLightbox(index)}
-              className="group relative aspect-square overflow-hidden rounded-2xl bg-secondary cursor-pointer"
+              className="group relative aspect-square overflow-hidden rounded-md bg-card border border-border cursor-pointer"
             >
               {/* Placeholder div - replace with actual images later */}
               <div className="absolute inset-0 bg-gradient-to-br from-secondary to-muted flex items-center justify-center p-4">
                 <span className="text-muted-foreground text-sm text-center">{item.alt}</span>
               </div>
-              
+
               {/* Overlay on hover */}
               <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
                 {item.type === 'video' ? (
-                  <Play className="w-14 h-14 text-white" />
+                  <Play className="w-14 h-14 text-primary-foreground" />
                 ) : (
-                  <span className="text-white text-sm font-semibold uppercase tracking-wider">Открыть</span>
+                  <span className="font-mono text-primary-foreground text-xs font-semibold uppercase tracking-[0.18em]">Открыть</span>
                 )}
               </div>
-              
+
               {/* Video badge */}
               {item.type === 'video' && (
-                <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-xs font-semibold">
+                <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1.5 rounded-md font-mono text-xs uppercase tracking-[0.18em]">
                   Видео
                 </div>
               )}
@@ -123,11 +123,11 @@ export function GallerySection() {
 
         {/* Lightbox */}
         {lightboxOpen && (
-          <div className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center">
+          <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-md flex items-center justify-center">
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 text-background/70 hover:text-background transition-colors z-10"
+              className="absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-colors z-10"
               aria-label="Закрыть"
             >
               <X className="w-8 h-8" />
@@ -136,14 +136,14 @@ export function GallerySection() {
             {/* Navigation */}
             <button
               onClick={goToPrevious}
-              className="absolute left-6 text-background/70 hover:text-background transition-colors z-10"
+              className="absolute left-6 text-muted-foreground hover:text-foreground transition-colors z-10"
               aria-label="Предыдущее"
             >
               <ChevronLeft className="w-12 h-12" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-6 text-background/70 hover:text-background transition-colors z-10"
+              className="absolute right-6 text-muted-foreground hover:text-foreground transition-colors z-10"
               aria-label="Следующее"
             >
               <ChevronRight className="w-12 h-12" />
@@ -155,18 +155,18 @@ export function GallerySection() {
                 <div className="aspect-video">
                   <iframe
                     src={filteredItems[currentIndex].src}
-                    className="w-full h-full rounded-2xl"
+                    className="w-full h-full rounded-md"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
                 </div>
               ) : (
-                <div className="relative aspect-video bg-muted rounded-2xl flex items-center justify-center">
+                <div className="relative aspect-video bg-muted rounded-md flex items-center justify-center">
                   {/* Placeholder - replace with actual image */}
                   <span className="text-muted-foreground">{filteredItems[currentIndex].alt}</span>
                 </div>
               )}
-              <p className="text-center text-background/70 mt-6 font-medium">
+              <p className="text-center font-mono text-muted-foreground text-xs uppercase tracking-[0.18em] mt-6">
                 {filteredItems[currentIndex].alt} ({currentIndex + 1} / {filteredItems.length})
               </p>
             </div>

@@ -4,56 +4,34 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Light theme - Clean, airy, professional */
-  --background: #FFFFFF;
-  --foreground: #1A1A1A;
-  --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
-  /* RAL 2004 Pure Orange */
-  --primary: #E75B12;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F8F8F8;
-  --secondary-foreground: #1A1A1A;
-  --muted: #F5F5F5;
-  --muted-foreground: #6B6B6B;
-  --accent: #E75B12;
-  --accent-foreground: #FFFFFF;
+  /* Dark cinematic theme - default */
+  --background: #0A0A0B;
+  --foreground: #F5F5F4;
+  --card: #131316;
+  --card-foreground: #F5F5F4;
+  --popover: #131316;
+  --popover-foreground: #F5F5F4;
+  /* Saturated orange tuned for dark surfaces */
+  --primary: #FF6B1A;
+  --primary-foreground: #0A0A0B;
+  --secondary: #1A1A1D;
+  --secondary-foreground: #F5F5F4;
+  --muted: #232327;
+  --muted-foreground: #9B9B9F;
+  --accent: #FF6B1A;
+  --accent-foreground: #0A0A0B;
   --destructive: #DC2626;
-  --destructive-foreground: #FFFFFF;
-  --border: #E8E8E8;
-  --input: #E8E8E8;
-  --ring: #E75B12;
-  --radius: 0.75rem;
-}
-
-.dark {
-  /* Dark theme - for future use */
-  --background: #0F0F0F;
-  --foreground: #FAFAFA;
-  --card: #1A1A1A;
-  --card-foreground: #FAFAFA;
-  --popover: #1A1A1A;
-  --popover-foreground: #FAFAFA;
-  --primary: #E75B12;
-  --primary-foreground: #FFFFFF;
-  --secondary: #262626;
-  --secondary-foreground: #FAFAFA;
-  --muted: #262626;
-  --muted-foreground: #A3A3A3;
-  --accent: #E75B12;
-  --accent-foreground: #FFFFFF;
-  --destructive: #DC2626;
-  --destructive-foreground: #FFFFFF;
-  --border: #333333;
-  --input: #333333;
-  --ring: #E75B12;
+  --destructive-foreground: #F5F5F4;
+  --border: #26262A;
+  --input: #26262A;
+  --ring: #FF6B1A;
+  --radius: 0.5rem;
 }
 
 @theme inline {
-  --font-sans: 'Manrope', system-ui, sans-serif;
-  --font-mono: 'Geist Mono', monospace;
+  --font-sans: var(--font-manrope), 'Manrope', system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-display: var(--font-bebas), 'Manrope', system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -73,9 +51,9 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 4px);
 }
 
@@ -83,11 +61,84 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
   html {
     scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    position: relative;
+  }
+  /* Film-grain noise overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.96 0 0 0 0 0.95 0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 240px 240px;
+  }
+}
+
+/* Layout utilities */
+.container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+.section {
+  padding-block: 5rem;
+}
+@media (min-width: 768px) {
+  .section {
+    padding-block: 8rem;
+  }
+}
+
+/* Typography helpers */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--primary);
+}
+
+/* Decorative topographic grid background */
+.bg-topo {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='none' stroke='%2326262A' stroke-width='1'><path d='M0 .5H80'/><path d='M.5 0V80'/><path d='M0 40.5H80' stroke-opacity='0.5'/><path d='M40.5 0V80' stroke-opacity='0.5'/><circle cx='40' cy='40' r='18' stroke-opacity='0.35'/><circle cx='40' cy='40' r='30' stroke-opacity='0.2'/></g></svg>");
+  background-size: 80px 80px;
+  background-repeat: repeat;
+}
+
+/* Scroll snap (desktop only, proximity mode to keep UX gentle) */
+@media (min-width: 768px) {
+  .scroll-snap-y {
+    scroll-snap-type: y proximity;
+  }
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-margin-top: 6rem;
   }
 }
 
@@ -144,6 +195,6 @@
 
 /* Selection color */
 ::selection {
-  background-color: #E75B12;
-  color: white;
+  background-color: #FF6B1A;
+  color: #0A0A0B;
 }

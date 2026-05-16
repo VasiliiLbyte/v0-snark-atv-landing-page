@@ -79,12 +79,12 @@ const specCategories = [
 
 export function SpecsSection() {
   return (
-    <section id="specs" className="py-28 md:py-40 bg-secondary/30">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="specs" className="section snap-section bg-secondary/30 relative">
+      <div className="container-page relative">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">Спецификации</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
+          <span className="section-eyebrow inline-block mb-4">Tech Specs</span>
+          <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground mb-6 text-balance">
             Технические характеристики
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
@@ -100,7 +100,7 @@ export function SpecsSection() {
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="flex items-center justify-center gap-2 px-6 py-4 bg-background border-2 border-border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary rounded-xl transition-all font-medium"
+                  className="flex items-center justify-center gap-2 px-6 py-4 bg-card border border-border text-muted-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary rounded-md transition-all font-mono uppercase text-xs tracking-[0.18em]"
                 >
                   <category.icon className="w-5 h-5" />
                   <span className="hidden sm:inline">{category.label}</span>
@@ -110,13 +110,13 @@ export function SpecsSection() {
 
             {specCategories.map((category) => (
               <TabsContent key={category.id} value={category.id}>
-                <div className="bg-background border border-border rounded-2xl shadow-sm overflow-hidden">
+                <div className="bg-card border border-border rounded-md overflow-hidden">
                   <div className="p-8">
                     <div className="flex items-center gap-4 mb-8">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center">
                         <category.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <h3 className="text-2xl font-bold text-foreground">
+                      <h3 className="font-display uppercase text-2xl tracking-tight text-foreground">
                         {category.label}
                       </h3>
                     </div>
@@ -124,7 +124,7 @@ export function SpecsSection() {
                       {category.specs.map((spec, index) => (
                         <div
                           key={spec.name}
-                          className={`flex items-center justify-between py-5 ${
+                          className={`flex items-center justify-between gap-4 py-5 ${
                             index !== category.specs.length - 1 ? 'border-b border-border' : ''
                           }`}
                         >
@@ -143,7 +143,7 @@ export function SpecsSection() {
                               </Tooltip>
                             )}
                           </div>
-                          <span className="font-semibold text-foreground text-right">{spec.value}</span>
+                          <span className="font-mono tabular-nums font-semibold text-foreground text-right">{spec.value}</span>
                         </div>
                       ))}
                     </div>

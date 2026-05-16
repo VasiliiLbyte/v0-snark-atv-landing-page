@@ -98,13 +98,13 @@ export function TestDriveSection() {
   }
 
   return (
-    <section id="test-drive" className="py-28 md:py-40 bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="test-drive" className="section snap-section bg-background relative">
+      <div className="container-page relative">
         <div className="max-w-xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-14">
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">Заявка</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
+            <span className="section-eyebrow inline-block mb-4">Заявка</span>
+            <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground mb-6 text-balance">
               Записаться на тест-драйв
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
@@ -135,7 +135,7 @@ export function TestDriveSection() {
                 placeholder="Как вас зовут?"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className={`h-14 text-base rounded-xl px-5 ${errors.name ? 'border-destructive' : ''}`}
+                className={`h-14 text-base rounded-md px-5 bg-card border-border ${errors.name ? 'border-destructive' : ''}`}
               />
               {errors.name && (
                 <p className="text-sm text-destructive">{errors.name}</p>
@@ -151,7 +151,7 @@ export function TestDriveSection() {
                 placeholder="+7 (___) ___-__-__"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className={`h-14 text-base rounded-xl px-5 ${errors.phone ? 'border-destructive' : ''}`}
+                className={`h-14 text-base rounded-md px-5 bg-card border-border font-mono tabular-nums ${errors.phone ? 'border-destructive' : ''}`}
               />
               {errors.phone && (
                 <p className="text-sm text-destructive">{errors.phone}</p>
@@ -165,7 +165,7 @@ export function TestDriveSection() {
                 value={formData.city}
                 onValueChange={(value) => setFormData({ ...formData, city: value })}
               >
-                <SelectTrigger className={`h-14 text-base rounded-xl px-5 ${errors.city ? 'border-destructive' : ''}`}>
+                <SelectTrigger className={`h-14 text-base rounded-md px-5 bg-card border-border ${errors.city ? 'border-destructive' : ''}`}>
                   <SelectValue placeholder="Выберите город" />
                 </SelectTrigger>
                 <SelectContent>
@@ -190,7 +190,7 @@ export function TestDriveSection() {
                 value={formData.comment}
                 onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
                 rows={4}
-                className="text-base rounded-xl px-5 py-4"
+                className="text-base rounded-md px-5 py-4 bg-card border-border"
               />
             </div>
 
@@ -220,8 +220,9 @@ export function TestDriveSection() {
             {/* Submit */}
             <Button
               type="submit"
+              variant="primary"
               size="lg"
-              className="w-full h-14 text-base rounded-xl shadow-lg shadow-primary/20 mt-4"
+              className="w-full h-14 text-base rounded-md mt-4"
               disabled={isSubmitting}
             >
               {isSubmitting ? (
@@ -259,17 +260,17 @@ export function TestDriveSection() {
 
       {/* Success Modal */}
       <Dialog open={isSuccess} onOpenChange={setIsSuccess}>
-        <DialogContent className="sm:max-w-md rounded-2xl">
+        <DialogContent className="sm:max-w-md rounded-md bg-card border-border">
           <DialogHeader className="text-center">
-            <div className="mx-auto w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+            <div className="mx-auto w-20 h-20 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
               <CheckCircle className="w-10 h-10 text-primary" />
             </div>
-            <DialogTitle className="text-2xl">Заявка отправлена!</DialogTitle>
+            <DialogTitle className="font-display uppercase text-2xl tracking-tight">Заявка отправлена!</DialogTitle>
             <DialogDescription className="text-base leading-relaxed">
               Спасибо за интерес к технике СНАРК. Наш менеджер свяжется с вами в течение 30 минут для уточнения деталей тест-драйва.
             </DialogDescription>
           </DialogHeader>
-          <Button onClick={() => setIsSuccess(false)} className="mt-6 h-12 rounded-xl">
+          <Button variant="primary" onClick={() => setIsSuccess(false)} className="mt-6 h-12 rounded-md">
             Понятно
           </Button>
         </DialogContent>

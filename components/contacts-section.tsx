@@ -37,12 +37,12 @@ const socialLinks = [
 
 export function ContactsSection() {
   return (
-    <section id="contacts" className="py-28 md:py-40 bg-secondary/30">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="contacts" className="section snap-section bg-secondary/30 relative">
+      <div className="container-page relative">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-widest mb-4">Связь с нами</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-6 text-balance">
+          <span className="section-eyebrow inline-block mb-4">Связь с нами</span>
+          <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground mb-6 text-balance">
             Контакты и дилеры
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
@@ -54,35 +54,35 @@ export function ContactsSection() {
         <div className="text-center mb-16">
           <a
             href="tel:88003335059"
-            className="inline-flex items-center gap-4 text-4xl md:text-5xl font-bold text-foreground hover:text-primary transition-colors"
+            className="inline-flex items-center gap-4 font-mono tabular-nums text-4xl md:text-5xl font-bold text-foreground hover:text-primary transition-colors"
           >
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center">
               <Phone className="w-8 h-8 text-primary" />
             </div>
             8 800 333 50 59
           </a>
-          <p className="text-muted-foreground mt-4 text-lg">Бесплатно по России</p>
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground mt-4">Бесплатно по России</p>
         </div>
 
         {/* Location cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {locations.map((location) => (
-            <div key={location.city} className="bg-background border border-border rounded-2xl p-8 hover:border-primary/50 hover:shadow-lg transition-all">
+            <div key={location.city} className="bg-card border border-border rounded-md p-8 hover:border-primary/50 transition-all">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-foreground">
+                  <h3 className="font-display uppercase text-xl tracking-tight text-foreground">
                     {location.city}
                   </h3>
-                  <p className="text-sm text-primary font-semibold mt-1">{location.type}</p>
+                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-primary mt-2">{location.type}</p>
                   <div className="mt-5 space-y-3 text-muted-foreground">
                     <p className="flex items-center gap-3">
                       <MapPin className="w-4 h-4 flex-shrink-0" />
                       {location.address}
                     </p>
-                    <p className="flex items-center gap-3">
+                    <p className="flex items-center gap-3 font-mono tabular-nums">
                       <Phone className="w-4 h-4 flex-shrink-0" />
                       {location.phone}
                     </p>
@@ -90,7 +90,7 @@ export function ContactsSection() {
                       <Mail className="w-4 h-4 flex-shrink-0" />
                       {location.email}
                     </p>
-                    <p className="flex items-center gap-3">
+                    <p className="flex items-center gap-3 font-mono tabular-nums">
                       <Clock className="w-4 h-4 flex-shrink-0" />
                       {location.hours}
                     </p>
@@ -102,13 +102,13 @@ export function ContactsSection() {
         </div>
 
         {/* Map placeholder */}
-        <div className="bg-background border border-border rounded-2xl overflow-hidden mb-16">
+        <div className="bg-card border border-border rounded-md overflow-hidden mb-16">
           <div className="aspect-[21/9] bg-secondary/50 flex items-center justify-center">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-md bg-muted flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-8 h-8 text-muted-foreground" />
               </div>
-              <p className="text-muted-foreground font-medium">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
                 Карта будет добавлена позже
               </p>
             </div>
@@ -118,7 +118,7 @@ export function ContactsSection() {
         {/* Social links and CTA */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-5">
-            <span className="text-muted-foreground font-medium">Мы в соцсетях:</span>
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">Мы в соцсетях:</span>
             <div className="flex items-center gap-3">
               {socialLinks.map((link) => (
                 <a
@@ -126,15 +126,15 @@ export function ContactsSection() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-xl bg-background border-2 border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
+                  className="w-12 h-12 rounded-md bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
                   aria-label={link.name}
                 >
-                  <span className="text-sm font-bold">{link.icon}</span>
+                  <span className="font-mono text-xs font-bold">{link.icon}</span>
                 </a>
               ))}
             </div>
           </div>
-          <Button asChild size="lg" className="px-8 h-14 rounded-xl">
+          <Button asChild variant="primary" size="lg" className="px-8 h-14 rounded-md">
             <Link href="#test-drive">Заказать звонок</Link>
           </Button>
         </div>

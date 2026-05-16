@@ -1,12 +1,23 @@
 import type { Metadata } from 'next'
-import { Manrope } from 'next/font/google'
+import { Manrope, JetBrains_Mono, Bebas_Neue } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
-const manrope = Manrope({ 
+const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
   variable: '--font-manrope',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+})
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-bebas',
 })
 
 export const metadata: Metadata = {
@@ -42,11 +53,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru" className={`${manrope.variable} bg-background`} suppressHydrationWarning>
-      <body className="font-sans antialiased bg-background text-foreground">
+    <html
+      lang="ru"
+      className={`${manrope.variable} ${jetbrainsMono.variable} ${bebasNeue.variable} dark bg-background`}
+      suppressHydrationWarning
+    >
+      <body className="font-sans antialiased min-h-screen bg-background text-foreground">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >

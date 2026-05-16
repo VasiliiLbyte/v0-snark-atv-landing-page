@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="scroll-snap-y">
         <HeroSection />
         <AdvantagesSection />
         <SpecsSection />

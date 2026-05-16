@@ -35,14 +35,14 @@ export function Header() {
           : 'bg-transparent'
       )}
     >
-      <div className="container mx-auto px-6 lg:px-8">
+      <div className="container-page">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">S</span>
             </div>
-            <span className="text-2xl font-bold tracking-tight text-foreground">
+            <span className="font-display uppercase text-2xl tracking-tight text-foreground">
               СНАРК
             </span>
           </Link>
@@ -53,7 +53,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all"
+                className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all"
               >
                 {item.label}
               </Link>
@@ -64,12 +64,12 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-6">
             <a
               href="tel:88003335059"
-              className="flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors"
+              className="flex items-center gap-2 font-mono text-sm tabular-nums text-foreground hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
               8 800 333 50 59
             </a>
-            <Button asChild size="lg" className="px-6">
+            <Button asChild variant="primary" size="lg" className="px-6 rounded-md">
               <Link href="#test-drive">Тест-драйв</Link>
             </Button>
           </div>
@@ -92,7 +92,7 @@ export function Header() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-background border-t border-border animate-fade-in">
-          <nav className="container mx-auto px-6 py-6 flex flex-col gap-2">
+          <nav className="container-page py-6 flex flex-col gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -105,12 +105,12 @@ export function Header() {
             ))}
             <a
               href="tel:88003335059"
-              className="flex items-center gap-2 text-base font-semibold text-foreground hover:text-primary transition-colors py-3"
+              className="flex items-center gap-2 font-mono text-base tabular-nums text-foreground hover:text-primary transition-colors py-3"
             >
               <Phone className="w-5 h-5 text-primary" />
               8 800 333 50 59
             </a>
-            <Button asChild size="lg" className="mt-4">
+            <Button asChild variant="primary" size="lg" className="mt-4 rounded-md">
               <Link href="#test-drive" onClick={() => setIsMobileMenuOpen(false)}>
                 Записаться на тест-драйв
               </Link>

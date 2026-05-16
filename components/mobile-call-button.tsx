@@ -23,8 +23,8 @@ export function MobileCallButton() {
 
   return (
     <div className="fixed bottom-6 left-4 right-4 md:hidden z-40 animate-fade-in">
-      <div className="bg-background border-2 border-border rounded-2xl p-4 shadow-2xl flex items-center gap-4">
-        <Button asChild className="flex-1 h-12 rounded-xl shadow-lg shadow-primary/20">
+      <div className="bg-card border border-border rounded-md p-4 shadow-2xl flex items-center gap-4">
+        <Button asChild variant="primary" className="flex-1 h-12 rounded-md">
           <Link href="#test-drive">
             <Phone className="w-5 h-5 mr-2" />
             Заказать звонок
