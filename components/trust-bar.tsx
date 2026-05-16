@@ -7,13 +7,11 @@ type Stat = {
 }
 
 const stats: Stat[] = [
-  { value: '38', label: 'Регионов РФ' },
-  { value: '−40°C … +40°C', label: 'Рабочий диапазон', size: 'sm' },
+  { value: '>15', label: 'Регионов РФ' },
+  { value: '−30°C … +40°C', label: 'Рабочий диапазон', size: 'sm' },
   { value: '1000+', label: 'Часов тестов' },
   { value: 'Реестр', label: 'Минпромторга РФ' },
 ]
-
-const logoPlaceholders = Array.from({ length: 6 }, (_, index) => index)
 
 export function TrustBar() {
   return (
@@ -48,18 +46,7 @@ export function TrustBar() {
           })}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 md:gap-10">
-          {logoPlaceholders.map((index) => (
-            <div
-              key={index}
-              className="flex h-10 w-[120px] items-center justify-center rounded-md border border-border bg-card font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0"
-            >
-              LOGO
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-6 text-center font-mono text-[10px] md:text-xs uppercase tracking-[0.18em] text-muted-foreground">
+        <p className="mt-10 text-center font-mono text-[10px] md:text-xs uppercase tracking-[0.18em] text-muted-foreground">
           Среди клиентов: охотхозяйства, туркомпании, геологоразведка, спасательные службы
         </p>
       </div>

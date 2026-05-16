@@ -34,12 +34,11 @@ export const metadata: Metadata = {
     locale: 'ru_RU',
     siteName: 'СНАРК',
     url: '/',
-    // TODO: положи 1200×630 OG-картинку в public/og-image.jpg
     images: ['/og-image.jpg'],
   },
-  // TODO: положи favicon.ico в public/ — иначе будет 404 на корне
   icons: {
     icon: '/favicon.ico',
+    apple: '/apple-icon.png',
   },
 }
 

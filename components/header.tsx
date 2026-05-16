@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 const navItems = [
@@ -39,17 +38,13 @@ export function Header() {
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">S</span>
-            </div>
-            <span
-              className={cn(
-                'font-display uppercase text-2xl tracking-tight transition-colors',
-                isScrolled ? 'text-foreground' : 'text-white',
-              )}
-            >
-              СНАРК
-            </span>
+            <img
+              src="/logos/snark-logo.svg"
+              alt="СНАРК"
+              className="h-10 w-auto transition-opacity group-hover:opacity-85"
+              width={175}
+              height={40}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -80,9 +75,6 @@ export function Header() {
               <Phone className="w-4 h-4" />
               8 800 333 50 59
             </a>
-            <Button asChild variant="primary" size="lg" className="px-6 rounded-md">
-              <Link href="#test-drive">Тест-драйв</Link>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -124,11 +116,6 @@ export function Header() {
               <Phone className="w-5 h-5 text-primary" />
               8 800 333 50 59
             </a>
-            <Button asChild variant="primary" size="lg" className="mt-4 rounded-md">
-              <Link href="#test-drive" onClick={() => setIsMobileMenuOpen(false)}>
-                Записаться на тест-драйв
-              </Link>
-            </Button>
           </nav>
         </div>
       )}

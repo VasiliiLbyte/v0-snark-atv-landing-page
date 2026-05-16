@@ -22,46 +22,18 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">S</span>
-              </div>
-              <span className="font-display uppercase text-2xl tracking-tight">
-                СНАРК
-              </span>
+              <img
+                src="/logos/snark-logo.svg"
+                alt="СНАРК"
+                className="h-10 w-auto transition-opacity hover:opacity-85"
+                width={175}
+                height={40}
+              />
             </Link>
             <p className="text-muted-foreground leading-relaxed mb-6">
               Российские вездеходы с двигателями Toyota.
               Собственное производство в Санкт-Петербурге с 1991 года.
             </p>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://vk.com/snark"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-md bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary-foreground hover:bg-primary hover:border-primary transition-all"
-                aria-label="ВКонтакте"
-              >
-                <span className="font-mono text-xs font-bold">VK</span>
-              </a>
-              <a
-                href="https://t.me/snark"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-md bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary-foreground hover:bg-primary hover:border-primary transition-all"
-                aria-label="Telegram"
-              >
-                <span className="font-mono text-xs font-bold">TG</span>
-              </a>
-              <a
-                href="https://youtube.com/@snark"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-md bg-secondary border border-border flex items-center justify-center text-muted-foreground hover:text-primary-foreground hover:bg-primary hover:border-primary transition-all"
-                aria-label="YouTube"
-              >
-                <span className="font-mono text-xs font-bold">YT</span>
-              </a>
-            </div>
           </div>
 
           {/* Navigation */}
@@ -92,6 +64,15 @@ export function Footer() {
                 >
                   <Phone className="w-4 h-4" />
                   8 800 333 50 59
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+78124479378"
+                  className="flex items-center gap-3 font-mono tabular-nums text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  +7 (812) 447-93-78
                 </a>
               </li>
               <li>
@@ -133,9 +114,22 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-border mt-14 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              © {new Date().getFullYear()} ООО «СНАРК ГРУП». Все права защищены.
-            </p>
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                © {new Date().getFullYear()} ООО «СНАРК ГРУП». Все права защищены.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+                {legalLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
               Цены указаны с НДС 22%. Не является публичной офертой.
             </p>

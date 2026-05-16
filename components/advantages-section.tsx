@@ -8,12 +8,12 @@ const advantages = [
   },
   {
     icon: Factory,
-    title: 'Собственное производство',
-    description: 'Контроль качества на каждом этапе. Завод в Санкт-Петербурге, полный цикл сборки.',
+    title: 'Произведено на заводе Бурлак',
+    description: 'Контроль качества на каждом этапе. Завод в городе Курган, полный цикл сборки.',
   },
   {
     icon: Award,
-    title: 'Расширенная гарантия',
+    title: 'Расширенная гарантия 1 год на все узлы и агрегаты',
     description: 'Персональная сервисная поддержка. Запчасти в наличии, быстрое обслуживание.',
   },
   {
@@ -28,15 +28,11 @@ export function AdvantagesSection() {
     <section id="advantages" className="section snap-section bg-background relative">
       <div className="container-page relative">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="section-eyebrow inline-block mb-4">Преимущества</span>
-          <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground mb-6 text-balance">
+          <h2 className="font-display uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground text-balance">
             Почему выбирают СНАРК
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
-            30 лет опыта производства техники для экстремальных условий.
-            Работает в -40°C, не подведёт.
-          </p>
         </div>
 
         {/* Advantages grid */}

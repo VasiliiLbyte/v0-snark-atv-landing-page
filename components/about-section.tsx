@@ -1,17 +1,16 @@
-import { Factory, Users, Award, Clock } from 'lucide-react'
+import { Factory, Award, Clock } from 'lucide-react'
 
 const timelineEvents = [
   { year: '1991', title: 'Основание Петропласт', description: 'Начало производства техники в Санкт-Петербурге' },
-  { year: '2015', title: 'Запуск линейки СНАРК', description: 'Первый вездеход на базе двигателя Toyota' },
-  { year: '2020', title: 'Расширение производства', description: 'Открытие второго завода в Дзержинске' },
-  { year: '2024', title: 'СНАРК 1800', description: 'Флагманская модель с улучшенными характеристиками' },
+  { year: '2022', title: 'Запуск линейки СНАРК', description: 'Первый вездеход на базе двигателя Toyota' },
+  { year: '2023', title: 'Расширение производства', description: 'Запуск серийного производства' },
+  { year: '2025', title: 'Производство на базе завода Вездеходы Бурлак', description: 'Запуск серийного производства на мощностях завода Бурлак' },
 ]
 
 const stats = [
   { icon: Clock, value: '30+', label: 'лет опыта' },
   { icon: Factory, value: '2', label: 'производства' },
   { icon: Award, value: '1000+', label: 'часов тестов' },
-  { icon: Users, value: '500+', label: 'клиентов' },
 ]
 
 export function AboutSection() {
@@ -27,7 +26,7 @@ export function AboutSection() {
             </h2>
             <p className="text-lg text-muted-foreground mb-6 text-pretty leading-relaxed">
               СНАРК — дочернее предприятие компании Петропласт, основанной в 1991 году.
-              Более 30 лет мы производим технику для экстремальных условий России.
+              Более 30 лет мы раьотаем в сфере автомобильной промышленности и сфере промышленной спецтехники.
             </p>
             <p className="text-lg text-muted-foreground mb-12 text-pretty leading-relaxed">
               Наши вездеходы созданы для охотников, рыболовов, геологов и спасателей.
@@ -36,7 +35,7 @@ export function AboutSection() {
             </p>
 
             {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid gap-6 sm:grid-cols-3">
               {stats.map((stat) => (
                 <div key={stat.label} className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">

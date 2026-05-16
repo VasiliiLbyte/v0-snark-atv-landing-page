@@ -5,10 +5,9 @@ import { AdvantagesSection } from '@/components/advantages-section'
 import { SpecsSection } from '@/components/specs-section'
 import { GallerySection } from '@/components/gallery-section'
 import { AboutSection } from '@/components/about-section'
-import { TestDriveSection } from '@/components/test-drive-section'
+import { VideoGallerySection } from '@/components/video-gallery-section'
 import { ContactsSection } from '@/components/contacts-section'
 import { Footer } from '@/components/footer'
-import { MobileCallButton } from '@/components/mobile-call-button'
 
 export default function HomePage() {
   return (
@@ -21,11 +20,10 @@ export default function HomePage() {
         <SpecsSection />
         <GallerySection />
         <AboutSection />
-        <TestDriveSection />
+        <VideoGallerySection />
         <ContactsSection />
       </main>
       <Footer />
-      <MobileCallButton />
     </>
   )
 }
