@@ -26,7 +26,7 @@ export function AboutSection() {
             </h2>
             <p className="text-lg text-muted-foreground mb-6 text-pretty leading-relaxed">
               СНАРК — дочернее предприятие компании Петропласт, основанной в 1991 году.
-              Более 30 лет мы раьотаем в сфере автомобильной промышленности и сфере промышленной спецтехники.
+              Более 30 лет мы работаем в сфере автомобильной промышленности и сфере промышленной спецтехники.
             </p>
             <p className="text-lg text-muted-foreground mb-12 text-pretty leading-relaxed">
               Наши вездеходы созданы для охотников, рыболовов, геологов и спасателей.
