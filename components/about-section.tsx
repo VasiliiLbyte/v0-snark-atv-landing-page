@@ -1,4 +1,4 @@
-import { Factory, Award, Clock } from 'lucide-react'
+import { Award, Clock } from 'lucide-react'
 
 const timelineEvents = [
   { year: '1991', title: 'Основание Петропласт', description: 'Начало производства техники в Санкт-Петербурге' },
@@ -9,7 +9,6 @@ const timelineEvents = [
 
 const stats = [
   { icon: Clock, value: '30+', label: 'лет опыта' },
-  { icon: Factory, value: '2', label: 'производства' },
   { icon: Award, value: '1000+', label: 'часов тестов' },
 ]
 
@@ -35,7 +34,7 @@ export function AboutSection() {
             </p>
 
             {/* Stats grid */}
-            <div className="grid gap-6 sm:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2">
               {stats.map((stat) => (
                 <div key={stat.label} className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
