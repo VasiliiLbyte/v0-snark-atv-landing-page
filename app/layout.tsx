@@ -21,7 +21,7 @@ const oswald = Oswald({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://snarkatv.com'),
+  metadataBase: new URL('https://snarkatv.ru'),
   title: 'СНАРК — Российские вездеходы с двигателями Toyota',
   description: 'Премиальные квадроциклы СНАРК собственного производства в Санкт-Петербурге. Двигатели Toyota 1ZZ-FE, постоянный полный привод, 30+ лет опыта.',
   keywords: 'квадроцикл, вездеход, СНАРК, Toyota, полный привод, внедорожник, ATV, Россия',
