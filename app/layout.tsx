@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Manrope, JetBrains_Mono, Oswald } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import JsonLd from '@/components/JsonLd'
 import './globals.css'
 
 const manrope = Manrope({
@@ -22,14 +23,14 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://snarkatv.ru'),
-  title: 'СНАРК — Российские вездеходы с двигателями Toyota',
-  description: 'Премиальные квадроциклы СНАРК собственного производства в Санкт-Петербурге. Двигатели Toyota 1ZZ-FE, постоянный полный привод, 30+ лет опыта.',
-  keywords: 'квадроцикл, вездеход, СНАРК, Toyota, полный привод, внедорожник, ATV, Россия',
+  title: 'СНАРК 1800 — российский вездеход на колесах низкого давления с двигателем Toyota | Официальный сайт',
+  description: 'СНАРК 1800 — премиальный российский вездеход на колесах низкого давления с двигателем Toyota 1ZZ-FE. 140 л.с., постоянный 4×4, 300 мм клиренс. Производство в России. 1000+ часов испытаний. Официальные дилеры по всей стране.',
+  keywords: 'вездеход СНАРК, СНАРК 1800, квадроцикл на колесах низкого давления, вездеход Toyota, болотоход СНАРК, вездеход для охоты, вездеход Бурлак',
   authors: [{ name: 'СНАРК ГРУП' }],
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'СНАРК — Российские вездеходы с двигателями Toyota',
-    description: 'Премиальные квадроциклы СНАРК собственного производства в Санкт-Петербурге.',
+    title: 'СНАРК 1800 — российский вездеход на колесах низкого давления',
+    description: 'Премиальный российский вездеход СНАРК 1800 с двигателем Toyota. 140 л.с., 4×4, 300 мм клиренс. 1000+ часов испытаний.',
     type: 'website',
     locale: 'ru_RU',
     siteName: 'СНАРК',
@@ -49,6 +50,26 @@ export default function RootLayout({
 }>) {
   const yandexMetrikaId = process.env.NEXT_PUBLIC_YM_ID
 
+  // Organization + LocalBusiness structured data
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': ['Organization', 'LocalBusiness'],
+    name: 'ООО «СНАРК ГРУП»',
+    alternateName: 'СНАРК',
+    description: 'Производитель российских вездеходов СНАРК на колёсах низкого давления с двигателями Toyota.',
+    url: 'https://snarkatv.ru',
+    email: 'sales@snark.ru',
+    telephone: '+7 800 333-50-59',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Екатерининский пр-кт, д. 1, лит. А, пом. 6Н, офис 11',
+      addressLocality: 'Санкт-Петербург',
+      postalCode: '195067',
+      addressCountry: 'RU',
+    },
+    // Production address in Kurgan can be mentioned in description or added as additional location
+  }
+
   return (
     <html
       lang="ru"
@@ -56,6 +77,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
+        <JsonLd data={organizationSchema} />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
