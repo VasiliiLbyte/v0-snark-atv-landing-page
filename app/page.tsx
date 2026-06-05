@@ -35,7 +35,7 @@ export default function HomePage() {
     },
   }
 
-  // FAQ schema (key questions based on site content)
+  // FAQ schema
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -61,7 +61,7 @@ export default function HomePage() {
         name: 'Сколько часов испытаний проходит вездеход СНАРК?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Каждая машина Проходит более 1000 часов реальных испытаний в самых сложных условиях: грязь, снег, брод, экстремальные температуры от -30°C до +40°C.',
+          text: 'Каждая машина проходит более 1000 часов реальных испытаний в самых сложных условиях: грязь, снег, брод, экстремальные температуры от -30°C до +40°C.',
         },
       },
       {
@@ -75,9 +75,40 @@ export default function HomePage() {
     ],
   }
 
+  // VideoObject schemas for the three main videos
+  const videoSchemas = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: 'СНАРК на бездорожье',
+      description: 'Демонстрация проходимости вездехода СНАРК 1800 на реальном бездорожье.',
+      thumbnailUrl: 'https://snarkatv.ru/videos/poster-1.jpg',
+      uploadDate: '2025-01-01',
+      contentUrl: 'https://rutube.ru/play/embed/71ae909e17968a9858350441bb6dcf50/',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: 'СНАРК — испытания',
+      description: 'Испытания вездехода СНАРК в экстремальных условиях. 1000+ часов реальных тестов.',
+      thumbnailUrl: 'https://snarkatv.ru/videos/poster-2.jpg',
+      uploadDate: '2025-01-01',
+      contentUrl: 'https://rutube.ru/play/embed/8e748b392c67239d890017fafe9fe757/',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: 'СНАРК — обзор',
+      description: 'Подробный обзор вездехода СНАРК 1800 и его характеристик.',
+      thumbnailUrl: 'https://snarkatv.ru/videos/poster-3.jpg',
+      uploadDate: '2025-01-01',
+      contentUrl: 'https://vkvideo.ru/video_ext.php?oid=18302936&id=456241227&hash=c33965c4249516bc&hd=3',
+    },
+  ]
+
   return (
     <>
-      <JsonLd data={[productSchema, faqSchema]} />
+      <JsonLd data={[productSchema, faqSchema, ...videoSchemas]} />
 
       <Header />
       <main className="scroll-snap-y">
