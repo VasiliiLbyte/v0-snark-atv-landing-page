@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   keywords: 'вездеход СНАРК, СНАРК 1800, квадроцикл на колесах низкого давления, вездеход Toyota, болотоход СНАРК, вездеход для охоты, вездеход Бурлак',
   authors: [{ name: 'СНАРК ГРУП' }],
   alternates: { canonical: '/' },
+  verification: {
+    google: 'it3qcEWUTE60DBn8dL58ByeKvBVzjc4P0Nyi3_Cxt-w',
+  },
   openGraph: {
     title: 'СНАРК 1800 — российский вездеход на колесах низкого давления',
     description: 'Премиальный российский вездеход СНАРК 1800 с двигателем Toyota. 140 л.с., 4×4, 300 мм клиренс. 1000+ часов испытаний.',
